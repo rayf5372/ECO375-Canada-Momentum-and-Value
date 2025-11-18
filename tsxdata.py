@@ -130,11 +130,11 @@ if __name__ == "__main__":
         help="Path to DAILY risk-free CSV with columns 'Date' and 'rf' (percent annualized).")
     ap.add_argument("--out", type=Path, default=Path("panel_momentum_ca.csv"),
         help="Output CSV path (default: panel_momentum_ca.csv).")
-    ap.add_argument("--start", type=str, default="2015-10-16",
-        help="Start date for Yahoo data (default: 2015-10-16).")
+    ap.add_argument("--start", type=str, default="2015-11-14",
+        help="Start date for Yahoo data (default: 2015-11-14).")
     ap.add_argument("--end", type=str, default=None,
         help="End date (default: None = today).")
-    ap.add_argument("--max-tickers", type=int, default=120,
-        help="Limit tickers for a quick prototype (default: 120; set None for all).")
+    ap.add_argument("--max-tickers", type=int, default=300,
+        help="Limit tickers for a quick prototype (default: 300; set None for all).")
     args = ap.parse_args()
     main(args)

@@ -1,101 +1,215 @@
 Symbol,Name,Last,Change,"% Change",Open,High,Low,Time
-AAV-T,"Advantage Oil & Gas Ltd",11.07,-0.02,-0.0018,11.08,11.13,10.93,10/17/25
-ABX-T,"Barrick Mining Corp",46.73,-3.35,-0.0669,49.07,49.28,45.92,10/17/25
-AC-T,"Air Canada",17.88,-0.1,-0.0056,17.88,18.09,17.78,10/17/25
-ACO-X-T,"Atco Ltd Cl I NV",52.95,0.33,0.0063,52.56,53.02,52.3,10/17/25
-AEM-T,"Agnico Eagle Mines Ltd",244.41,-16.29,-0.0625,255.84,256.44,239.48,10/17/25
-AG-T,"First Majestic Silver Corp",19.67,-1.87,-0.0868,20.75,21.08,19.18,10/17/25
-AGI-T,"Alamos Gold Inc Cls A",48.35,-4.3,-0.0817,50.94,51.31,47.86,10/17/25
-AIF-T,"Altus Group Ltd",56.29,-0.53,-0.0093,56.63,56.98,56.28,10/17/25
-ALA-T,"AltaGas Ltd",42.47,0.34,0.0081,42.12,42.56,42.01,10/17/25
-AP-UN-T,"Allied Properties Real Estate Inv Trust",18.55,0.04,0.0022,18.55,18.7,18.34,10/17/25
-AQN-T,"Algonquin Power and Utilities Corp",8.37,0.02,0.0024,8.31,8.38,8.26,10/17/25
-ARE-T,"Aecon Group Inc",24.49,0.04,0.0016,24.35,24.65,23.93,10/17/25
-ARIS-T,"Aris Gold Corporation",14.19,-1.22,-0.0792,14.94,15.14,13.92,10/17/25
-ARX-T,"Arc Resources Ltd",24.87,0.02,0.0008,24.85,25,24.73,10/17/25
-ATD-T,"Alimentation Couche-Tard Inc.",74.95,1.6,0.0218,72.96,75.17,72.92,10/17/25
-ATH-T,"Athabasca Oil Corp",6.31,0.18,0.0294,6.16,6.36,6.15,10/17/25
-ATRL-T,"Atkinsrealis Group Inc",97.59,-2,-0.0201,98.62,99.56,96.99,10/17/25
-ATS-T,"Ats Corp",36.43,-0.73,-0.0196,36.7,37.17,36.31,10/17/25
-ATZ-T,"Aritzia Inc",89.76,-0.32,-0.0036,89.95,91.29,88.28,10/17/25
-AYA-T,"Aya Gold and Silver Inc",17.11,-1.69,-0.0899,18.5,18.5,16.71,10/17/25
-BAM-T,"Brookfield Asset Management Ltd",75.92,-0.13,-0.0017,75.92,76.9,75.47,10/17/25
-BB-T,"Blackberry Ltd",6.3,-0.05,-0.0079,6.25,6.37,6.21,10/17/25
-BBD-B-T,"Bombardier Inc Cl B Sv",189.55,-0.62,-0.0033,189,191.22,186.99,10/17/25
-BBU-UN-T,"Brookfield Business Partners LP",48.02,-0.86,-0.0176,48.03,49.09,47.34,10/17/25
-BCE-T,"BCE Inc",33.99,0.71,0.0213,33.07,34.29,32.93,10/17/25
-BDGI-T,"Badger Infrastructure Solutions Ltd",68.13,-0.59,-0.0086,68.35,68.61,67.46,10/17/25
-BDT-T,"Bird Construction Inc",29.25,-0.5,-0.0168,29.52,29.55,28.95,10/17/25
-BEI-UN-T,"Boardwalk Real Estate Investment Trust",65.25,-0.37,-0.0056,65.28,65.62,64.65,10/17/25
-BEP-UN-T,"Brookfield Renewable Partners LP",39.99,-0.37,-0.0092,40.25,40.25,39.72,10/17/25
-BHC-T,"Bausch Health Companies Inc",8.49,0.03,0.0035,8.43,8.52,8.36,10/17/25
-BIP-UN-T,"Brookfield Infra Partners LP Units",48.09,0.33,0.0069,47.72,48.35,47.59,10/17/25
-BIR-T,"Birchcliff Energy Ltd",5.89,0.01,0.0017,5.85,5.92,5.83,10/17/25
-BLX-T,"Boralex Inc",28.46,-0.53,-0.0183,28.66,28.88,28.34,10/17/25
-BMO-T,"Bank of Montreal",175.05,-0.3,-0.0017,175.35,177,174.91,10/17/25
-BN-T,"Brookfield Corporation",62.25,0.39,0.0063,61.39,62.46,61.39,10/17/25
-BNS-T,"Bank of Nova Scotia",89.32,-0.59,-0.0066,89.69,89.9,89.29,10/17/25
-BTE-T,"Baytex Energy Corp",3.17,0,0,3.14,3.19,3.13,10/17/25
-BTO-T,"B2Gold Corp",7.78,-0.54,-0.0649,8.1,8.27,7.67,10/17/25
-BYD-T,"Boyd Group Services Inc",209.51,-1.58,-0.0075,209.78,212.51,208.57,10/17/25
-CAE-T,"Cae Inc",38.38,-0.3,-0.0078,38.34,38.6,38.12,10/17/25
-CAR-UN-T,"CDN Apartment Un",39.08,-0.03,-0.0008,39.03,39.18,38.93,10/17/25
-CCA-T,"Cogeco Communications Inc",66.56,1.85,0.0286,64.5,66.64,64.5,10/17/25
-CCL-B-T,"Ccl Industries Inc Cl B NV",77.31,1.54,0.0203,76.22,77.66,76.21,10/17/25
-CCO-T,"Cameco Corp",121.31,-6.74,-0.0526,123,125.82,119.54,10/17/25
-CEU-T,"Ces Energy Solutions Corp",8.64,-0.15,-0.0171,8.72,8.83,8.63,10/17/25
-CG-T,"Centerra Gold Inc",16.59,-1.23,-0.069,17.43,17.51,16.28,10/17/25
-CHP-UN-T,"Choice Properties REIT",14.72,0.01,0.0007,14.76,14.84,14.61,10/17/25
-CIGI-T,"Colliers International Group Inc",221.08,3.82,0.0176,217.43,224.91,216.51,10/17/25
-CJT-T,"Cargojet Inc",81.51,-0.7,-0.0085,82.2,82.5,81.03,10/17/25
-CLS-T,"Celestica Inc Sv",389.08,-4.41,-0.0112,385.27,402,381.22,10/17/25
-CM-T,"Canadian Imperial Bank of Commerce",112.52,-0.17,-0.0015,112.35,112.67,111.92,10/17/25
-CNQ-T,"Canadian Natural Resources Ltd.",42.19,-0.3,-0.0071,42.49,42.5,42.07,10/17/25
-CNR-T,"Canadian National Railway Co.",134.05,1.06,0.008,132.18,135.2,132.1,10/17/25
-CP-T,"Canadian Pacific Kansas City Ltd",107.23,1.2,0.0113,105,108.62,105,10/17/25
-CPKR-T,"Canada Packers Inc WI",16.19,1.09,0.0722,15.3,16.5,15.25,10/17/25
-CPX-T,"Capital Power Corp",71.21,-1.84,-0.0252,72.42,72.74,70.84,10/17/25
-CRR-UN-T,"Crombie Real Estate Investment Trust",15.19,0.1,0.0066,15.12,15.23,14.98,10/17/25
-CRT-UN-T,"CT Real Estate Investment Trust",16.48,0.15,0.0092,16.36,16.5,16.28,10/17/25
-CS-T,"Capstone Mining Corp",11.11,-0.39,-0.0339,11.38,11.59,10.98,10/17/25
-CSH-UN-T,"Chartwell Retirement Residences",20.28,0.85,0.0437,19.44,20.3,18.85,10/17/25
-CSU-T,"Constellation Software Inc",3814.13,-41.51,-0.0108,3825,3892.82,3810.62,10/17/25
-CTC-A-T,"Canadian Tire Corp Cl A NV",173.14,2.54,0.0149,170.5,174.4,170.5,10/17/25
-CU-T,"Canadian Utilities Ltd Cl A NV",39.73,0.2,0.0051,39.44,39.77,39.35,10/17/25
-CURA-T,"Curaleaf Holdings Inc",4.02,-0.36,-0.0822,4.34,4.34,4.01,10/17/25
-CVE-T,"Cenovus Energy Inc",23.54,0.02,0.0009,23.55,23.73,23.34,10/17/25
-DFY-T,"DeFinity Financial Corporation",65.57,-1.01,-0.0152,66.72,67,64.5,10/17/25
-DIR-UN-T,"Dream Industrial REIT",12.21,0.19,0.0158,12,12.24,11.91,10/17/25
-DML-T,"Denison Mines Corp",4.1,-0.22,-0.0509,4.12,4.32,4.02,10/17/25
-DOL-T,"Dollarama Inc",182.97,2.24,0.0124,180.73,184.46,180.66,10/17/25
-DOO-T,"Brp Inc",94.5,0.78,0.0083,93.62,94.73,92.79,10/17/25
-DPM-T,"Dundee Precious Metals Inc",33.19,-1.87,-0.0533,34.54,34.6,32.54,10/17/25
-DSG-T,"Descartes Sys",134.79,1.18,0.0088,133.01,135.99,133.01,10/17/25
-DSV-T,"Discovery Silver Corp",5.34,-0.65,-0.1085,5.79,5.84,5.25,10/17/25
-EDR-T,"Endeavour Silver Corp",12.69,-1.54,-0.1082,13.64,13.96,12.38,10/17/25
-EFN-T,"Element Fleet Management Corp",37.31,0.33,0.0089,36.83,37.5,36.83,10/17/25
-EFR-T,"Energy Fuels Inc",29.49,-0.95,-0.0312,27.68,30.42,27,10/17/25
-EFX-T,"Enerflex Ltd",15.09,0.03,0.002,15.02,15.1,14.86,10/17/25
-EIF-T,"Exchange Income Corp",77.25,-0.46,-0.0059,77.25,77.76,76.63,10/17/25
-ELD-T,"Eldorado Gold",39.46,-3.91,-0.0902,42.4,42.54,39.32,10/17/25
-EMA-T,"Emera Incorporated",69.1,0.33,0.0048,68.47,69.34,68.33,10/17/25
-EMP-A-T,"Empire Company Ltd",48.15,0.39,0.0082,47.75,48.37,47.73,10/17/25
-ENB-T,"Enbridge Inc",65.98,-0.4,-0.006,66.28,66.37,65.68,10/17/25
-EQB-T,"EQB Inc",89.52,-0.88,-0.0097,90.11,90.25,89.18,10/17/25
-EQX-T,"Equinox Gold Corp",16.86,-1.03,-0.0576,17.2,17.53,16.53,10/17/25
-ERO-T,"Ero Copper Corp",30.93,-1.07,-0.0334,31.42,31.95,30.69,10/17/25
-FCR-UN-T,"First Capital REIT Units",19.43,0.18,0.0094,19.14,19.44,19.13,10/17/25
-FFH-T,"Fairfax Financial Holdings Ltd",2327.34,-15.97,-0.0068,2355.14,2355.14,2314.97,10/17/25
-FM-T,"First Quantum Minerals Ltd",31.09,-0.72,-0.0226,31.65,31.85,30.72,10/17/25
-FNV-T,"Franco-Nevada Corp",285.43,-17.07,-0.0564,299.15,299.6,281.87,10/17/25
-FRU-T,"Freehold Royalties Ltd",13.55,-0.06,-0.0044,13.6,13.65,13.5,10/17/25
-FSV-T,"Firstservice Corp",256.69,-0.29,-0.0011,258.23,258.23,254.9,10/17/25
-FTS-T,"Fortis Inc",72.47,0.15,0.0021,72.29,72.52,72.04,10/17/25
-FTT-T,"Finning Intl",69.26,-0.41,-0.0059,69.22,70.5,68.61,10/17/25
-FVI-T,"Fortuna Mines Inc",12.2,-1.17,-0.0875,13.02,13.15,12.02,10/17/25
-GEI-T,"Gibson Energy Inc",23.65,-0.35,-0.0146,23.98,24.17,23.44,10/17/25
-GFL-T,"Gfl Environmental Inc",63.28,0.67,0.0107,62.64,64.13,62.56,10/17/25
-GIB-A-T,"CGI Group Inc Cl A Sv",122.03,-0.27,-0.0022,121.04,122.82,121.04,10/17/25
-GIL-T,"Gildan Activewear Inc",85.07,0.02,0.0002,84.84,85.27,84.2,10/17/25
-GMIN-T,"G Mining Ventures Corp",30.61,-3.58,-0.1047,33.24,33.33,29.17,10/17/25
-GRT-UN-T,"Granite Real Estate Investment Trust",80.58,3.57,0.0464,76.99,80.6,76.99,10/17/25
+AAV-T,"Advantage Oil & Gas Ltd",11.94,-0.06,-0.005,11.98,12.11,11.89,11/17/25
+ABX-T,"Barrick Mining Corp",51.98,-0.02,-0.0004,51.69,53.54,51.59,11/17/25
+AC-T,"Air Canada",17.89,-0.75,-0.0402,18.54,18.57,17.82,11/17/25
+ACO-X-T,"Atco Ltd Cl I NV",56.26,0.33,0.0059,56,56.29,55.63,11/17/25
+AEM-T,"Agnico Eagle Mines Ltd",231.64,-4.38,-0.0186,234.03,236.93,230.45,11/17/25
+AG-T,"First Majestic Silver Corp",16.23,-0.63,-0.0374,16.71,16.93,15.96,11/17/25
+AGI-T,"Alamos Gold Inc Cls A",46.44,-0.36,-0.0077,46.56,47.3,45.83,11/17/25
+AIF-T,"Altus Group Ltd",49.98,0.18,0.0036,49.8,50.34,49.8,11/17/25
+ALA-T,"AltaGas Ltd",43.56,0.09,0.0021,43.38,43.73,43.33,11/17/25
+AP-UN-T,"Allied Properties Real Estate Inv Trust",13.12,-0.34,-0.0253,13.31,13.63,12.95,11/17/25
+AQN-T,"Algonquin Power and Utilities Corp",8.43,-0.09,-0.0106,8.5,8.56,8.38,11/17/25
+ARE-T,"Aecon Group Inc",25.42,-0.95,-0.036,26.39,26.68,25.32,11/17/25
+ARIS-T,"Aris Gold Corporation",15.93,0.18,0.0114,15.8,16.17,15.68,11/17/25
+ARX-T,"Arc Resources Ltd",24.67,-0.01,-0.0004,24.57,24.96,24.51,11/17/25
+ATD-T,"Alimentation Couche-Tard Inc.",70.05,-0.25,-0.0036,69.91,70.18,69.32,11/17/25
+ATH-T,"Athabasca Oil Corp",7.46,0.09,0.0122,7.4,7.6,7.35,11/17/25
+ATRL-T,"Atkinsrealis Group Inc",88.24,-2.95,-0.0324,91.01,91.52,87.42,11/17/25
+ATS-T,"Ats Corp",35.42,-0.81,-0.0224,36.33,36.33,35.35,11/17/25
+ATZ-T,"Aritzia Inc",99.28,1.86,0.0191,97.34,100.12,96.87,11/17/25
+AYA-T,"Aya Gold and Silver Inc",14.09,-0.78,-0.0525,14.6,14.75,13.89,11/17/25
+BAM-T,"Brookfield Asset Management Ltd",69.41,-3,-0.0414,71.91,72.46,69.14,11/17/25
+BB-T,"Blackberry Ltd",5.85,-0.18,-0.0299,6,6.08,5.82,11/17/25
+BBD-B-T,"Bombardier Inc Cl B Sv",209.1,-7.69,-0.0355,213.87,218,208.66,11/17/25
+BBU-UN-T,"Brookfield Business Partners LP",43.63,-1.83,-0.0403,44.71,46,43.13,11/17/25
+BCE-T,"BCE Inc",32.38,0.37,0.0116,32.03,32.41,31.85,11/17/25
+BDGI-T,"Badger Infrastructure Solutions Ltd",71.18,-0.37,-0.0052,71.51,72.21,70.99,11/17/25
+BDT-T,"Bird Construction Inc",24.93,-0.66,-0.0258,25.63,25.65,24.76,11/17/25
+BEI-UN-T,"Boardwalk Real Estate Investment Trust",64.11,-0.75,-0.0116,64.83,64.86,63.89,11/17/25
+BEP-UN-T,"Brookfield Renewable Partners LP",40.65,0.12,0.003,40.5,40.99,40.28,11/17/25
+BHC-T,"Bausch Health Companies Inc",8.62,-0.2,-0.0227,8.8,8.89,8.5,11/17/25
+BIP-UN-T,"Brookfield Infra Partners LP Units",49.58,-0.11,-0.0022,49.85,50,49.25,11/17/25
+BIR-T,"Birchcliff Energy Ltd",6.89,-0.07,-0.0101,6.96,7.02,6.89,11/17/25
+BLX-T,"Boralex Inc",26.05,-0.57,-0.0214,26.6,26.7,25.81,11/17/25
+BMO-T,"Bank of Montreal",171.68,-2.24,-0.0129,172.87,173.73,170.88,11/17/25
+BN-T,"Brookfield Corporation",60.2,-1.55,-0.0251,61,61.63,59.73,11/17/25
+BNS-T,"Bank of Nova Scotia",94.66,0.01,0.0001,94.7,95.27,94.16,11/17/25
+BTE-T,"Baytex Energy Corp",4.25,-0.18,-0.0406,4.42,4.46,4.2,11/17/25
+BTO-T,"B2Gold Corp",5.64,-0.14,-0.0242,5.73,5.75,5.52,11/17/25
+BYD-T,"Boyd Group Services Inc",216.98,-0.13,-0.0006,217.52,218,213.45,11/17/25
+CAE-T,"Cae Inc",36.37,-0.69,-0.0186,36.93,37,36.21,11/17/25
+CAR-UN-T,"CDN Apartment Un",38.4,-0.92,-0.0234,39.28,39.58,38.25,11/17/25
+CCA-T,"Cogeco Communications Inc",65.46,-0.45,-0.0068,65.97,66,65.08,11/17/25
+CCL-B-T,"Ccl Industries Inc Cl B NV",84.56,-3.18,-0.0362,87.76,88.01,83.88,11/17/25
+CCO-T,"Cameco Corp",116.63,-2.26,-0.019,116.45,119.08,115.06,11/17/25
+CEU-T,"Ces Energy Solutions Corp",10.72,-0.37,-0.0334,11.01,11.2,10.54,11/17/25
+CG-T,"Centerra Gold Inc",16.6,-0.3,-0.0178,16.93,17.01,16.43,11/17/25
+CHP-UN-T,"Choice Properties REIT",14.95,-0.03,-0.002,14.97,15.05,14.9,11/17/25
+CIGI-T,"Colliers International Group Inc",195.74,-9.8,-0.0477,204.82,204.82,195.23,11/17/25
+CJT-T,"Cargojet Inc",73.43,0.64,0.0088,72.9,75.28,72.64,11/17/25
+CLS-T,"Celestica Inc Sv",434.46,-0.54,-0.0012,428.08,454.33,420,11/17/25
+CM-T,"Canadian Imperial Bank of Commerce",122.05,-0.22,-0.0018,121.94,122.56,121.52,11/17/25
+CNQ-T,"Canadian Natural Resources Ltd.",46.87,-0.19,-0.004,47,47.63,46.73,11/17/25
+CNR-T,"Canadian National Railway Co.",134.09,-0.72,-0.0053,133.99,135.42,133.5,11/17/25
+CP-T,"Canadian Pacific Kansas City Ltd",98.85,-0.28,-0.0028,98.87,99.35,98.05,11/17/25
+CPKR-T,"Canada Packers Inc WI",15.55,-0.13,-0.0083,15.62,15.73,15.47,11/17/25
+CPX-T,"Capital Power Corp",62.29,-0.74,-0.0117,63.12,63.9,61.7,11/17/25
+CRR-UN-T,"Crombie Real Estate Investment Trust",15.28,0.03,0.002,15.32,15.4,15.2,11/17/25
+CRT-UN-T,"CT Real Estate Investment Trust",16.16,0.12,0.0075,16.06,16.31,16.01,11/17/25
+CS-T,"Capstone Mining Corp",12.04,-0.13,-0.0107,12.13,12.19,11.91,11/17/25
+CSH-UN-T,"Chartwell Retirement Residences",19.96,0.19,0.0096,19.63,20.15,19.63,11/17/25
+CSU-T,"Constellation Software Inc",3245.53,-97.48,-0.0292,3303.69,3366.66,3211.21,11/17/25
+CTC-A-T,"Canadian Tire Corp Cl A NV",174.29,2.49,0.0145,171.16,175.03,170.2,11/17/25
+CU-T,"Canadian Utilities Ltd Cl A NV",42.14,-0.26,-0.0061,42.39,42.46,42.01,11/17/25
+CURA-T,"Curaleaf Holdings Inc",2.83,-0.06,-0.0208,2.91,3.14,2.75,11/17/25
+CVE-T,"Cenovus Energy Inc",25.2,-0.2,-0.0079,25.5,25.9,25.2,11/17/25
+DFY-T,"DeFinity Financial Corporation",70.01,1.14,0.0166,69,70.09,68.85,11/17/25
+DIR-UN-T,"Dream Industrial REIT",12.03,-0.14,-0.0115,12.18,12.2,11.98,11/17/25
+DML-T,"Denison Mines Corp",3.38,-0.11,-0.0315,3.49,3.51,3.31,11/17/25
+DOL-T,"Dollarama Inc",196.58,1.65,0.0085,194.41,196.62,194.41,11/17/25
+DOO-T,"Brp Inc",89.83,-0.01,-0.0001,89.79,90.41,88.57,11/17/25
+DPM-T,"Dundee Precious Metals Inc",34.52,1.02,0.0304,33.24,34.72,33.02,11/17/25
+DSG-T,"Descartes Sys",113.09,-3.9,-0.0333,116.94,116.94,112.81,11/17/25
+DSV-T,"Discovery Silver Corp",6.4,-0.25,-0.0376,6.61,6.64,6.28,11/17/25
+EDR-T,"Endeavour Silver Corp",10.58,-0.25,-0.0231,10.74,10.94,10.38,11/17/25
+EFN-T,"Element Fleet Management Corp",35.37,0.45,0.0129,34.68,35.9,34.68,11/17/25
+EFR-T,"Energy Fuels Inc",21.01,-0.79,-0.0362,21.48,22.16,20.77,11/17/25
+EFX-T,"Enerflex Ltd",18.08,-0.58,-0.0311,18.51,18.63,18.07,11/17/25
+EIF-T,"Exchange Income Corp",76,-0.17,-0.0022,76.16,76.7,75.58,11/17/25
+ELD-T,"Eldorado Gold",38.62,-0.53,-0.0135,38.49,39.61,38.17,11/17/25
+EMA-T,"Emera Incorporated",68.77,1.64,0.0244,67.25,68.77,67.25,11/17/25
+EMP-A-T,"Empire Company Ltd",52.57,0.94,0.0182,51.61,52.61,51.61,11/17/25
+ENB-T,"Enbridge Inc",67.11,-0.05,-0.0007,67.2,67.99,67,11/17/25
+EQB-T,"EQB Inc",84.49,-0.49,-0.0058,84.69,85.45,84.05,11/17/25
+EQX-T,"Equinox Gold Corp",17.49,-0.36,-0.0202,17.76,18.01,17.33,11/17/25
+ERO-T,"Ero Copper Corp",30.19,0,0,29.93,30.22,29.13,11/17/25
+FCR-UN-T,"First Capital REIT Units",19.36,0.05,0.0026,19.39,19.45,19.23,11/17/25
+FFH-T,"Fairfax Financial Holdings Ltd",2357.06,65.22,0.0285,2288.79,2358.6,2288.79,11/17/25
+FM-T,"First Quantum Minerals Ltd",29.6,-0.08,-0.0027,29.53,29.68,29.01,11/17/25
+FNV-T,"Franco-Nevada Corp",274.02,-2.51,-0.0091,276.31,278.31,271.76,11/17/25
+FRU-T,"Freehold Royalties Ltd",14.88,0.19,0.0129,14.69,14.96,14.61,11/17/25
+FSV-T,"Firstservice Corp",211.77,-7.13,-0.0326,218.05,218.05,211.66,11/17/25
+FTS-T,"Fortis Inc",73.26,-0.07,-0.001,72.71,73.26,72.6,11/17/25
+FTT-T,"Finning Intl",73.05,-0.96,-0.013,74.09,74.9,72.64,11/17/25
+FVI-T,"Fortuna Mines Inc",11.6,-0.14,-0.0119,11.72,11.78,11.39,11/17/25
+GEI-T,"Gibson Energy Inc",23.65,-0.2,-0.0084,23.85,23.95,23.57,11/17/25
+GFL-T,"Gfl Environmental Inc",62.12,-0.07,-0.0011,62.37,62.52,61.71,11/17/25
+GIB-A-T,"CGI Group Inc Cl A Sv",121.08,-0.68,-0.0056,121.5,122.15,120.34,11/17/25
+GIL-T,"Gildan Activewear Inc",79.8,-2.45,-0.0298,81.81,82.01,79.24,11/17/25
+GMIN-T,"G Mining Ventures Corp",28.15,-0.53,-0.0185,28.48,28.68,27.79,11/17/25
+GRT-UN-T,"Granite Real Estate Investment Trust",76.5,-0.58,-0.0075,76.56,77.41,76.21,11/17/25
+Symbol,Name,Last,Change,"% Change",Open,High,Low,Time
+GSY-T,"Goeasy Ltd",119.91,-3.04,-0.0247,122.88,123.46,119.06,11/17/25
+GWO-T,"Great-West Lifeco Inc",62.72,0.17,0.0027,62.53,62.81,62.32,11/17/25
+H-T,"Hydro One Ltd",54.15,0.26,0.0048,53.99,54.28,53.56,11/17/25
+HBM-T,"Hudbay Minerals Inc",21.54,-0.58,-0.0262,21.98,22.05,21.32,11/17/25
+HR-UN-T,"H&R Real Estate Inv Trust",9.89,-0.1,-0.01,10.01,10.11,9.85,11/17/25
+HWX-T,"Headwater Exploration Inc",8.23,0.08,0.0098,8.19,8.29,8.15,11/17/25
+IAG-T,"IA Financial Corp Inc",163.58,-1.21,-0.0073,164.47,165.71,162.74,11/17/25
+IFC-T,"Intact Financial Corp",285.72,3.54,0.0125,282.12,286.18,281.53,11/17/25
+IGM-T,"Igm Financial Inc",55.56,-0.05,-0.0009,55.34,55.85,55.3,11/17/25
+IIP-UN-T,"Interrent Real Estate Investment Trust",13.31,-0.01,-0.0008,13.31,13.35,13.29,11/17/25
+IMG-T,"Iamgold Corp",18.95,-0.33,-0.0171,19.23,19.51,18.71,11/17/25
+IMO-T,"Imperial Oil",138.72,-0.17,-0.0012,138.89,139.58,137.66,11/17/25
+IPCO-T,"International Petroleum Corp",26.68,-0.09,-0.0034,26.76,27.23,26.43,11/17/25
+IVN-T,"Ivanhoe Mines Ltd",12.36,-0.2,-0.0159,12.46,12.59,12.3,11/17/25
+JWEL-T,"Jamieson Wellness Inc",34.92,-0.53,-0.015,35.38,35.38,34.36,11/17/25
+K-T,"Kinross Gold Corp",35.05,-0.65,-0.0182,35.36,35.98,34.9,11/17/25
+KEL-T,"Kelt Exploration Ltd",7.25,-0.34,-0.0448,7.58,7.58,7.25,11/17/25
+KEY-T,"Keyera Corp",43.41,0.13,0.003,43.22,43.99,43.19,11/17/25
+KMP-UN-T,"Killam Apartment REIT",16.59,-0.2,-0.0119,16.68,16.76,16.53,11/17/25
+KNT-T,"K92 Mining Inc",18.66,-0.27,-0.0143,18.79,18.99,18.47,11/17/25
+KXS-T,"Kinaxis Inc",170.89,-1.82,-0.0105,172.62,173.29,170,11/17/25
+L-T,"Loblaw CO",61.32,0.81,0.0134,60.43,61.49,59.89,11/17/25
+LB-T,"Laurentian Bank",32.76,-0.39,-0.0118,33.2,33.2,32.55,11/17/25
+LIF-T,"Labrador Iron Ore Royalty Corp",29.04,0.23,0.008,28.71,29.06,28.71,11/17/25
+LNR-T,"Linamar Corp",77.46,-1.49,-0.0189,78.78,78.86,77.07,11/17/25
+LSPD-T,"Lightspeed Commerce Inc.",16.14,-0.83,-0.0489,16.8,16.95,16.13,11/17/25
+LUG-T,"Lundin Gold Inc",113.11,-0.79,-0.0069,112.87,115.42,111.78,11/17/25
+LUN-T,"Lundin Mining Corp",25.44,-0.22,-0.0086,25.43,25.88,25.15,11/17/25
+MDA-T,"Mda Ltd",21.44,-0.82,-0.0368,22.17,22.48,21.14,11/17/25
+MEG-T,"Meg Energy Corp",30.89,0.22,0.0072,30.5,31.03,30.49,11/14/25
+MFC-T,"Manulife Fin",47.48,-0.78,-0.0162,48.06,48.18,47.14,11/17/25
+MFI-T,"Maple Leaf Foods",24.5,0.35,0.0145,24.11,24.67,24.11,11/17/25
+MG-T,"Magna International Inc",67.16,-1.74,-0.0253,68.58,69.03,66.8,11/17/25
+MRU-T,"Metro Inc",98.9,0.86,0.0088,98.05,98.94,97.48,11/17/25
+MTL-T,"Mullen Group Ltd",14,-0.21,-0.0148,14.2,14.27,13.96,11/17/25
+MX-T,"Methanex Corp",50.16,-1.44,-0.0279,51.56,51.86,50.05,11/17/25
+NA-T,"National Bank of Canada",161.71,-0.09,-0.0006,161.72,162.5,160.81,11/17/25
+NFI-T,"Nfi Group Inc.",13.04,-0.08,-0.0061,13.11,13.38,12.88,11/17/25
+NG-T,"Novagold Res Inc",11.97,-0.15,-0.0124,12.13,12.41,11.79,11/17/25
+NGD-T,"New Gold Inc",9.89,-0.15,-0.0149,9.88,10.19,9.79,11/17/25
+NGEX-T,"Ngex Minerals Ltd",23.91,0.05,0.0021,23.6,24.04,23.24,11/17/25
+NPI-T,"Northland Power Inc",18.48,0.28,0.0154,18.24,18.93,18.19,11/17/25
+NTR-T,"Nutrien Ltd",80.09,-3.22,-0.0387,82.95,83.05,80.06,11/17/25
+NVA-T,"Nuvista Energy Ltd",17.89,-0.21,-0.0116,18.03,18.09,17.86,11/17/25
+NWC-T,"The North West Company Inc",48.02,0.15,0.0031,47.9,48.13,47.68,11/17/25
+NWH-UN-T,"Northwest Healthcare Prop REIT",5.3,-0.09,-0.0167,5.33,5.4,5.3,11/17/25
+NXE-T,"Nexgen Energy Ltd",11.14,-0.29,-0.0254,11.41,11.51,10.96,11/17/25
+OGC-T,"Oceanagold Corp",33.79,-0.63,-0.0183,34.13,34.6,33.35,11/17/25
+OLA-T,"Orla Mining Ltd",16.99,-0.02,-0.0012,17.01,17.3,16.64,11/17/25
+ONEX-T,"Onex Corp",104.83,-2.2,-0.0206,106.5,108.54,103.66,11/17/25
+OR-T,"Osisko Gold Royalties Ltd",44.79,-0.65,-0.0143,45.45,45.5,44.53,11/17/25
+OTEX-T,"Open Text Corp",46.18,-1.06,-0.0224,47.25,47.3,45.69,11/17/25
+PAAS-T,"Pan American Silver Corp",52.58,-1.45,-0.0268,53.47,53.99,52.25,11/17/25
+PBH-T,"Premium Brands Holdings Corp",88.85,0.87,0.0099,87.89,89.57,87.89,11/17/25
+PET-T,"Pet Valu Holdings Ltd",28.88,0.37,0.013,28.72,29.11,28.56,11/17/25
+PEY-T,"Peyto Exploration and Dvlpmnt Corp",21.28,-0.43,-0.0198,21.5,21.79,21.1,11/17/25
+PMZ-UN-T,"Primaris REIT",15.03,-0.04,-0.0027,15.1,15.22,14.97,11/17/25
+POU-T,"Paramount Resources Ltd",23.48,-0.34,-0.0143,23.76,23.8,23.47,11/17/25
+POW-T,"Power Corp of Canada Sv",69.6,-0.08,-0.0011,69.57,69.67,68.86,11/17/25
+PPL-T,"Pembina Pipeline Corp",54.03,-0.31,-0.0057,54.43,54.65,54,11/17/25
+PPTA-T,"Perpetua Resources Corp",31.79,1.49,0.0492,29.9,32.43,29.9,11/17/25
+PSK-T,"Prairiesky Royalty Ltd",26.55,-0.14,-0.0052,26.7,26.91,26.41,11/17/25
+PXT-T,"Parex Resources Inc",18.56,0.07,0.0038,18.49,18.73,18.45,11/17/25
+QBR-B-T,"Quebecor Inc Cl B Sv",52.31,1.11,0.0217,51.07,52.4,50.91,11/17/25
+QSR-T,"Restaurant Brands International Inc",95.89,-0.46,-0.0048,96.71,96.71,94.9,11/17/25
+RBA-T,"Rb Global Inc",138.56,-3.96,-0.0278,141.1,141.96,138.41,11/17/25
+RCH-T,"Richelieu Hardware Ltd",36.86,-0.63,-0.0168,37.48,37.62,36.69,11/17/25
+RCI-B-T,"Rogers Communications Inc Cl B NV",54.14,0.28,0.0052,53.75,54.22,53.66,11/17/25
+REI-UN-T,"Riocan Real Est Un",18.79,0.14,0.0075,18.56,18.87,18.5,11/17/25
+RUS-T,"Russel Metals",39.35,-0.45,-0.0113,39.85,39.96,39.09,11/17/25
+RY-T,"Royal Bank of Canada",206.93,1.47,0.0072,206.49,208.03,205.66,11/17/25
+SAP-T,"Saputo Inc",38.04,0.32,0.0085,37.57,38.14,37.57,11/17/25
+SEA-T,"Seabridge Gold Inc",33.4,0.04,0.0012,32.83,33.81,32.68,11/17/25
+SES-T,"Secure Waste Infrastructure Corp",17.81,0.04,0.0023,17.79,18.08,17.66,11/17/25
+SHOP-T,"Shopify Inc",196.89,-8.03,-0.0392,201.28,203.98,195.01,11/17/25
+SIA-T,"Sienna Senior Living Inc",20.11,0.54,0.0276,19.67,20.32,19.56,11/17/25
+SII-T,"Sprott Inc",120.17,-3.55,-0.0287,123.42,123.9,119.58,11/17/25
+SJ-T,"Stella Jones Inc",82.87,-2,-0.0236,84.83,85.16,82.62,11/17/25
+SKE-T,"Skeena Resources Ltd",24.99,0.43,0.0175,24.41,25.52,24.41,11/17/25
+SLF-T,"Sun Life Financial Inc",83.02,-0.09,-0.0011,83.16,83.41,82.53,11/17/25
+SOBO-T,"South Bow Corporation WI",38.78,0.33,0.0086,38.68,39.05,38.5,11/17/25
+SPB-T,"Superior Plus Corp",6.65,0.36,0.0572,6.41,6.79,6.36,11/17/25
+SRU-UN-T,"Smartcentres Real Estate Investment Trust",26.11,-0.14,-0.0053,26.14,26.39,26.02,11/17/25
+SSRM-T,"Ssr Mining Inc",29.89,0.07,0.0023,29.64,30.74,29.58,11/17/25
+STN-T,"Stantec Inc",139.45,-9.18,-0.0618,147.3,147.59,138,11/17/25
+SU-T,"Suncor Energy Inc",62.45,0.28,0.0045,62.18,63.09,61.87,11/17/25
+T-T,"Telus Corp",20.06,-0.32,-0.0157,20.36,20.39,20.01,11/17/25
+TA-T,"Transalta Corp",20,-0.46,-0.0225,20.76,20.88,19.68,11/17/25
+TCL-A-T,"Transcontinental Inc Cl A Sv",19.83,-0.39,-0.0193,20.14,20.19,19.68,11/17/25
+TD-T,"Toronto-Dominion Bank",114.46,0.41,0.0036,113.9,115.14,113.79,11/17/25
+TECK-B-T,"Teck Resources Ltd Cl B",56.73,-0.93,-0.0161,57.5,57.79,56.25,11/17/25
+TFII-T,"Tfi International Inc",118.51,-1.77,-0.0147,119.64,120.14,117.51,11/17/25
+TFPM-T,"Triple Flag Precious Metals Corp",42.45,0.28,0.0066,42.17,42.66,41.78,11/17/25
+TIH-T,"Toromont Ind",157.06,-2.5,-0.0157,159.34,160.05,156.5,11/17/25
+TOU-T,"Tourmaline Oil Corp",60.06,-1.58,-0.0256,61.37,61.63,59.76,11/17/25
+TPZ-T,"Topaz Energy Corp",26.69,0.12,0.0045,26.7,26.84,26.54,11/17/25
+TRI-T,"Thomson Reuters Corp",192.69,-5.36,-0.0271,198.05,198.39,192.3,11/17/25
+TRP-T,"TC Energy Corp",76.61,-0.84,-0.0108,77.64,77.73,76.57,11/17/25
+TSU-T,"Trisura Group Ltd",40.32,1.08,0.0275,39.29,40.74,39.29,11/17/25
+TVE-T,"Tamarack Valley Energy Ltd",7.02,0.05,0.0072,6.95,7.14,6.94,11/17/25
+Symbol,Name,Last,Change,"% Change",Open,High,Low,Time
+TVK-T,"Terravest Capital Inc",120.19,-1.74,-0.0143,120.4,121.51,119.49,11/17/25
+TXG-T,"Torex Gold Resources Inc",62.93,-0.58,-0.0091,63.23,63.85,62.39,11/17/25
+VET-T,"Vermilion Energy Inc",12.35,-0.2,-0.0159,12.6,12.67,12.27,11/17/25
+WCN-T,"Waste Connections Inc",237.99,1.1,0.0046,236.95,238.46,235.6,11/17/25
+WCP-T,"Whitecap Resources Inc",11.12,0.11,0.01,11.01,11.23,10.9,11/17/25
+WDO-T,"Wesdome Gold Mines Ltd",20.71,0.11,0.0053,20.59,20.93,20.42,11/17/25
+WFG-T,"West Fraser Timber CO Ltd",82.96,-1.59,-0.0188,84.27,84.27,82.1,11/17/25
+WN-T,"George Weston Limited",93.56,1,0.0108,92.32,93.62,91.66,11/17/25
+WPK-T,"Winpak Ltd",43.63,-0.11,-0.0025,43.61,43.9,43.41,11/17/25
+WPM-T,"Wheaton Precious Metals Corp",143.68,-2.47,-0.0169,145.54,146.38,142.28,11/17/25
+WSP-T,"WSP Global Inc",251.8,-1.5,-0.0059,252.37,254.14,249.78,11/17/25
+X-T,"TMX Group Ltd",52,-0.28,-0.0054,51.99,52.56,51.28,11/17/25
