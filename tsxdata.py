@@ -1,141 +1,323 @@
-import argparse
-from pathlib import Path
+import os
+from datetime import datetime
+
 import numpy as np
 import pandas as pd
 import yfinance as yf
 
-def to_yahoo(tsx_code: str) -> str:
-    if not isinstance(tsx_code, str):
-        return tsx_code
-    s = tsx_code.strip().upper()
-    if "-" in s:
-        base, suffix = s.rsplit("-", 1)
-    else:
-        base, suffix = s, ""
-    base = base.replace(".", "-")
-    out = base + (f"-{suffix}" if suffix else "")
-    out = out.replace("-T", ".TO").replace("-V", ".V")
-    return out
+# ---------------------------------------------------------------------
+# CONFIG
+# ---------------------------------------------------------------------
 
-def compute_mom_12_2(group: pd.DataFrame) -> pd.Series:
-    lr = group["logret"]
-    mom_log = lr.shift(2).rolling(window=11, min_periods=11).sum()
-    return np.expm1(mom_log)
+INPUT_CSV = "tsx300.csv"            # your Barchart file
+OUTPUT_CSV = "panel_momentum_ca.csv"
 
-def load_rf_monthly_from_daily(rf_csv: Path) -> pd.DataFrame:
-    df = pd.read_csv(rf_csv)
-    if "Date" not in df.columns or "rf" not in df.columns:
-        raise ValueError("RF CSV must have columns: 'Date' and 'rf'.")
-    df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
-    df = df.dropna(subset=["Date"]).sort_values("Date")
-    df["rf"] = pd.to_numeric(df["rf"], errors="coerce")  # 'Bank holiday' -> NaN
-    if df["rf"].dropna().quantile(0.9) > 1.0:
-        df["rf"] = df["rf"] / 100.0  # percent -> decimal
-    df["month_end"] = df["Date"].dt.to_period("M").dt.to_timestamp("M")
-    monthly_ann = df.groupby("month_end")["rf"].mean()
-    rf_month = ((1.0 + monthly_ann) ** (1.0 / 12.0) - 1.0).to_frame("rf_month")
-    out = rf_month.reset_index().rename(columns={"month_end": "date"})
-    return out[["date", "rf_month"]]
+START_DATE = "2010-01-01"           # start of sample
+END_DATE = None                     # None = up to today
+INTERVAL = "1mo"                    # monthly data
+BATCH_SIZE = 80                     # yfinance batch size
 
-def main(args):
-    cons = pd.read_csv(args.constituents)
-    ticker_col = args.ticker_col if args.ticker_col in cons.columns else cons.columns[0]
-    cons["yahoo_ticker"] = cons[ticker_col].apply(to_yahoo)
-    tickers = (
-        cons["yahoo_ticker"].dropna().astype(str).str.strip().replace({"": np.nan}).dropna().unique().tolist()
+# ---------------------------------------------------------------------
+# STEP 1: Read & clean constituents
+# ---------------------------------------------------------------------
+
+
+def detect_ticker_column(df: pd.DataFrame) -> str:
+    """Guess the ticker column name, e.g. Symbol / Ticker / symbol."""
+    candidates = ["Symbol", "Ticker", "symbol", "ticker"]
+    for c in candidates:
+        if c in df.columns:
+            return c
+    raise ValueError(f"Could not find a ticker column among: {candidates}")
+
+
+def clean_constituents(path: str) -> pd.DataFrame:
+    """Load Barchart CSV and return a clean constituents DataFrame."""
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"Input file not found: {path}")
+
+    cons = pd.read_csv(path)
+
+    # Normalise column names
+    cons.columns = [c.strip() for c in cons.columns]
+
+    ticker_col = detect_ticker_column(cons)
+
+    print(f"[DEBUG] raw cons shape: {cons.shape}")
+    print(f"[DEBUG] ticker_col detected: {ticker_col}")
+
+    # Drop NA symbols
+    cons = cons[cons[ticker_col].notna()]
+
+    # Drop rows that are actually repeated header lines (Symbol,Name,...)
+    cons = cons[cons[ticker_col] != ticker_col]
+
+    # Drop obvious garbage footer / note rows if present
+    bad_mask = cons[ticker_col].astype(str).str.contains(
+        "DOWNLOADED DATA PROVIDED BY BARCHART", case=False, na=False
     )
-    if args.max_tickers is not None:
-        tickers = tickers[:args.max_tickers]
-    if not tickers:
-        raise ValueError("No tickers found after cleaning.")
+    cons = cons[~bad_mask]
 
-    print(f"[INFO] Downloading {len(tickers)} tickers from Yahoo Finance...")
-    px = yf.download(
-        tickers=tickers,
-        start=args.start,
-        end=args.end,
-        auto_adjust=False,
-        actions=True,
-        group_by="ticker",
-        interval="1d",
-        threads=True,
+    # Clean up whitespace and build raw_ticker
+    cons["raw_ticker"] = cons[ticker_col].astype(str).str.strip()
+
+    # Deduplicate on raw ticker
+    cons = cons.drop_duplicates(subset=["raw_ticker"]).reset_index(drop=True)
+
+    print(f"[DEBUG] cons after cleaning shape: {cons.shape}")
+    print(f"[DEBUG] unique raw tickers: {cons['raw_ticker'].nunique()}")
+
+    return cons
+
+
+# ---------------------------------------------------------------------
+# STEP 2: Map Barchart tickers -> Yahoo tickers
+# ---------------------------------------------------------------------
+
+
+def to_yahoo_ticker(sym: str) -> str:
+    """
+    Convert Barchart TSX ticker format to Yahoo format.
+
+    Examples:
+        AAV-T      -> AAV.TO
+        BBD-B-T    -> BBD-B.TO
+        AP-UN-T    -> AP-UN.TO
+        Already .TO stays as-is.
+    """
+    s = sym.strip()
+
+    # If it's already a Yahoo-style TSX ticker, keep it
+    if s.endswith(".TO"):
+        return s
+
+    # Standard TSX tickers in this file end with "-T"
+    if s.endswith("-T"):
+        return s[:-2] + ".TO"
+
+    # Fallback: leave unchanged (for debugging)
+    return s
+
+
+def add_yahoo_tickers(cons: pd.DataFrame) -> pd.DataFrame:
+    cons = cons.copy()
+    cons["yahoo_ticker"] = cons["raw_ticker"].apply(to_yahoo_ticker)
+
+    n_raw = cons["raw_ticker"].nunique()
+    n_yahoo = cons["yahoo_ticker"].nunique()
+
+    print(f"[DEBUG] unique raw_ticker: {n_raw}")
+    print(f"[DEBUG] unique yahoo_ticker: {n_yahoo}")
+    print("[DEBUG] first 30 raw -> yahoo:")
+    print(cons[["raw_ticker", "yahoo_ticker"]].head(30))
+
+    return cons
+
+
+# ---------------------------------------------------------------------
+# STEP 3: Download prices from Yahoo in batches
+# ---------------------------------------------------------------------
+
+
+def download_batch(tickers, start, end, interval) -> pd.DataFrame:
+    """
+    Download one batch of tickers with yfinance and return a tidy DataFrame:
+    columns = date, yahoo_ticker, adj_close
+
+    Handles both:
+    - Multi-ticker MultiIndex columns (Price level, Ticker level)
+    - Single-ticker flat columns
+    """
+    tickers = list(tickers)
+    print(f"[INFO] Downloading batch of {len(tickers)} tickers...")
+
+    data = yf.download(
+        tickers,
+        start=start,
+        end=end,
+        interval=interval,
+        group_by="column",   # <- important: Price-level first, Ticker-level second
+        auto_adjust=False,   # keep Adj Close
         progress=True,
+        threads=True,
     )
 
-    def get_adj_close(df_tkr: pd.DataFrame) -> pd.Series:
-        if "Adj Close" in df_tkr.columns and not df_tkr["Adj Close"].isna().all():
-            return df_tkr["Adj Close"].rename("adj_close")
-        return df_tkr["Close"].rename("adj_close")
+    if data.empty:
+        print("[WARN] yfinance returned empty DataFrame for this batch.")
+        return pd.DataFrame(columns=["date", "yahoo_ticker", "adj_close"])
 
     frames = []
-    for t in tickers:
-        try:
-            df_t = px[t].copy()
-        except KeyError:
-            print(f"[WARN] Ticker {t} not found in downloaded data, skipping.")
-            continue
-        except Exception as e:
-            print(f"[ERROR] Unexpected error for ticker {t}: {e}, skipping.")
-            continue
-        if df_t.empty:
-            continue
-        adj = get_adj_close(df_t).dropna()
-        adj_m = adj.resample("M").last().to_frame()
-        adj_m["ret"] = adj_m["adj_close"].pct_change()
-        tmp = adj_m.reset_index()
-        tmp = tmp.rename(columns={tmp.columns[0]: "date"})
-        tmp["ticker"] = t
-        frames.append(tmp)
+
+    # ---------------------------
+    # CASE 1: MultiIndex columns
+    # ---------------------------
+    if isinstance(data.columns, pd.MultiIndex):
+        # Level 0 = price fields, Level 1 = ticker symbols (with names e.g. ("Price","Ticker"))
+        level0_vals = list(map(str, data.columns.levels[0]))
+
+        # Decide which price field to use
+        if "Adj Close" in level0_vals:
+            price_field = "Adj Close"
+        elif "Close" in level0_vals:
+            price_field = "Close"
+        else:
+            raise ValueError(
+                f"No 'Adj Close' or 'Close' field in downloaded columns: {level0_vals}"
+            )
+
+        # Slice out the chosen price field; columns are now just tickers
+        price_df = data.xs(price_field, level=0, axis=1)
+
+        for t in tickers:
+            if t not in price_df.columns:
+                print(f"[WARN] No column for ticker {t} in price_df, skipping.")
+                continue
+
+            s = price_df[t].dropna()
+            if s.empty:
+                print(f"[WARN] No valid prices for {t}, skipping.")
+                continue
+
+            df = s.to_frame(name="adj_close")
+            df["date"] = df.index
+            df["yahoo_ticker"] = t
+            frames.append(df.reset_index(drop=True))
+
+    # ---------------------------
+    # CASE 2: Single ticker, flat columns
+    # ---------------------------
+    else:
+        cols = list(map(str, data.columns))
+
+        if "Adj Close" in cols:
+            price_field = "Adj Close"
+        elif "Close" in cols:
+            price_field = "Close"
+        else:
+            raise ValueError(
+                f"No 'Adj Close' or 'Close' in single-ticker columns: {cols}"
+            )
+
+        t = tickers[0] if len(tickers) == 1 else tickers
+        s = data[price_field].dropna()
+        df = s.to_frame(name="adj_close")
+        df["date"] = df.index
+        df["yahoo_ticker"] = t
+        frames.append(df.reset_index(drop=True))
 
     if not frames:
-        raise RuntimeError("No price data collected. Check tickers and dates.")
-    panel = pd.concat(frames, ignore_index=True).sort_values(["ticker", "date"])
-    panel["date"] = pd.to_datetime(panel["date"])
+        return pd.DataFrame(columns=["date", "yahoo_ticker", "adj_close"])
 
-    panel["logret"] = np.log1p(panel["ret"])
-    panel["mom_12_2"] = panel.groupby("ticker", group_keys=False).apply(compute_mom_12_2)
-    panel["ret_lead"] = panel.groupby("ticker")["ret"].shift(-1)
+    out = pd.concat(frames, ignore_index=True)
+    return out
 
-    rf_monthly = load_rf_monthly_from_daily(args.rf_csv)
-    panel = panel.merge(rf_monthly, on="date", how="left")
-    panel["rf_month"] = panel["rf_month"].fillna(method="ffill")
-    panel["excess_return_lead"] = panel["ret_lead"] - panel["rf_month"]
 
-    panel["month"] = panel["date"].dt.to_period("M").astype(str)
+def build_price_panel(cons_with_yahoo: pd.DataFrame) -> pd.DataFrame:
+    """
+    Loop over Yahoo tickers in batches and build full price panel.
+    """
+    tickers = cons_with_yahoo["yahoo_ticker"].unique().tolist()
+    print(f"[INFO] Requested {len(tickers)} tickers after cleaning.")
 
-    def _z(s):
-        std = s.std(ddof=0)
-        return (s - s.mean()) / std if std and np.isfinite(std) and std > 0 else np.nan
-    panel["mom_z"] = panel.groupby("month")["mom_12_2"].transform(_z)
+    all_frames = []
 
-    out = (
-        panel.dropna(subset=["mom_12_2", "ret_lead", "rf_month"])
-        .loc[:, ["ticker", "date", "month", "ret", "ret_lead", "rf_month",
-                 "excess_return_lead", "mom_12_2", "mom_z"]]
-        .sort_values(["ticker", "date"])
-        .reset_index(drop=True)
+    for i in range(0, len(tickers), BATCH_SIZE):
+        batch = tickers[i : i + BATCH_SIZE]
+        batch_df = download_batch(batch, START_DATE, END_DATE, INTERVAL)
+        all_frames.append(batch_df)
+
+    if not all_frames:
+        raise RuntimeError("No data downloaded; check tickers and internet connection.")
+
+    panel = pd.concat(all_frames, ignore_index=True)
+
+    # Merge back raw tickers (and any other cons info you want)
+    panel = panel.merge(
+        cons_with_yahoo[["raw_ticker", "yahoo_ticker"]],
+        on="yahoo_ticker",
+        how="left",
     )
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    out.to_csv(args.out, index=False)
-    print(f"[DONE] Wrote {len(out):,} rows for {out['ticker'].nunique()} tickers -> {args.out}")
+
+    # Standardise column order
+    panel = panel[["date", "yahoo_ticker", "raw_ticker", "adj_close"]]
+
+    # Sort
+    panel = panel.sort_values(["yahoo_ticker", "date"]).reset_index(drop=True)
+
+    print(f"[INFO] Price panel shape: {panel.shape}")
+    return panel
+
+
+# ---------------------------------------------------------------------
+# STEP 4: Compute returns & 12–2 momentum
+# ---------------------------------------------------------------------
+
+
+def add_returns_and_momentum(panel: pd.DataFrame) -> pd.DataFrame:
+    """
+    Given a tidy panel with columns:
+        ['date', 'yahoo_ticker', 'ticker', 'adj_close', ...]
+    compute:
+        - simple returns by ticker
+        - 12–2 momentum (Carhart style): (P_{t-2} / P_{t-12}) - 1
+
+    Returns the same DataFrame with extra columns:
+        'ret', 'mom_12_2'
+    """
+
+    # The panel produced by this script uses 'yahoo_ticker' as the
+    # identifier column (from build_price_panel). Use that consistently
+    # here instead of an ambiguous 'ticker' column.
+    # Make sure we're sorted consistently
+    panel = panel.sort_values(["yahoo_ticker", "date"]).reset_index(drop=True)
+
+    # Group by yahoo_ticker once
+    g = panel.groupby("yahoo_ticker", group_keys=False)
+
+    # 1) One-month simple return: P_t / P_{t-1} - 1
+    panel["ret"] = g["adj_close"].pct_change()
+
+    # 2) 12–2 momentum:
+    #    For each ticker, mom_t = P_{t-2} / P_{t-12} - 1
+    def _mom_12_2(price: pd.Series) -> pd.Series:
+        p_lag2 = price.shift(2)
+        p_lag12 = price.shift(12)
+        return p_lag2 / p_lag12 - 1
+
+    # Use transform so the returned series is aligned with `panel`'s index
+    # (no MultiIndex). transform applies the function to each group and
+    # returns a Series with the same index as the original DataFrame.
+    mom = g["adj_close"].transform(lambda x: _mom_12_2(x))
+
+    # Now the index matches `panel`'s row index, so this is safe
+    panel["mom_12_2"] = mom
+
+    return panel
+
+
+# ---------------------------------------------------------------------
+# MAIN
+# ---------------------------------------------------------------------
+
+
+def main():
+    print("[STEP] Loading and cleaning constituents...")
+    cons = clean_constituents(INPUT_CSV)
+    cons = add_yahoo_tickers(cons)
+
+    print("[STEP] Downloading price data...")
+    panel = build_price_panel(cons)
+
+    print("[STEP] Computing returns and 12–2 momentum...")
+    panel = add_returns_and_momentum(panel)
+
+    print(f"[STEP] Writing panel to {OUTPUT_CSV} ...")
+    panel.to_csv(OUTPUT_CSV, index=False)
+    print(
+        f"[DONE] Wrote {len(panel):,} rows for "
+        f"{panel['yahoo_ticker'].nunique()} tickers -> {OUTPUT_CSV}"
+    )
+
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(description="Build a Canada momentum panel with monthly RF from daily RF CSV.")
-    ap.add_argument("--constituents", type=Path, required=False,
-        default=Path(r"C:\Users\rfang\Documents\ECO375-Canada-Momentum-and-Value\tsx300.csv"),
-        help="Path to TSX constituents CSV.")
-    ap.add_argument("--ticker-col", type=str, default="Ticker",
-        help="Column name containing tickers in the constituents CSV (default: 'Ticker').")
-    ap.add_argument("--rf-csv", type=Path, required=False,
-        default=Path(r"C:\Users\rfang\Documents\ECO375-Canada-Momentum-and-Value\canadariskfreedaily.csv"),
-        help="Path to DAILY risk-free CSV with columns 'Date' and 'rf' (percent annualized).")
-    ap.add_argument("--out", type=Path, default=Path("panel_momentum_ca.csv"),
-        help="Output CSV path (default: panel_momentum_ca.csv).")
-    ap.add_argument("--start", type=str, default="2015-11-14",
-        help="Start date for Yahoo data (default: 2015-11-14).")
-    ap.add_argument("--end", type=str, default=None,
-        help="End date (default: None = today).")
-    ap.add_argument("--max-tickers", type=int, default=300,
-        help="Limit tickers for a quick prototype (default: 300; set None for all).")
-    args = ap.parse_args()
-    main(args)
+    main()
