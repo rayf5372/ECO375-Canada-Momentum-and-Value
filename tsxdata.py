@@ -19,7 +19,7 @@ def to_yahoo(tsx_code: str) -> str:
 
 def compute_mom_12_2(group: pd.DataFrame) -> pd.Series:
     lr = group["logret"]
-    mom_log = lr.shift(1).rolling(window=11, min_periods=11).sum()
+    mom_log = lr.shift(2).rolling(window=11, min_periods=11).sum()
     return np.expm1(mom_log)
 
 def load_rf_monthly_from_daily(rf_csv: Path) -> pd.DataFrame:
@@ -71,11 +71,12 @@ def main(args):
     for t in tickers:
         try:
             df_t = px[t].copy()
-        except Exception:
-            if isinstance(px, pd.DataFrame) and not px.empty:
-                df_t = px.copy()
-            else:
-                continue
+        except KeyError:
+            print(f"[WARN] Ticker {t} not found in downloaded data, skipping.")
+            continue
+        except Exception as e:
+            print(f"[ERROR] Unexpected error for ticker {t}: {e}, skipping.")
+            continue
         if df_t.empty:
             continue
         adj = get_adj_close(df_t).dropna()
